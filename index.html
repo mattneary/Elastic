@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="pull-refresh.css" rel="stylesheet" /> <!-- Include Styles -->
+	<style>		
+		/* Additional styling */				
+		#main {
+			width: 100%;
+			height: 400px;
+			box-shadow: 2px -5px 3px #333;
+			height: 100%;
+		}
+		#main li {
+			list-style: none;
+			font-family: Helvetica Neue, sans-serif;
+			font-size: 16px;
+		}
+	</style>
+	<!-- Include jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<!-- Include plugin -->
+	<script src="pull-refresh.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="banner"></div>
+		<div id="main"></div>
+	</div>	
+	<script>
+		// Give main view content
+		for( var i = 0; i < 50; i++ ) $("#main").append('<li>Hello</li>');		
+		
+		$(".wrapper").pullToRefresh(function(finishedRefreshCallback) {
+			// refresh content... 
+			
+			// ...then tell pullToRefresh to finish
+			setTimeout(finishedRefreshCallback, 1e3);
+		});
+	</script>
+</body>
+</html>

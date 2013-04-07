@@ -9,9 +9,9 @@ Make a wrapper of your content with a banner element and a container of your pag
 <div class="wrapper">
 	<div class="banner"></div>
 	<div id="main">
-		<div id="hero"></div>
-		<div id="content"></div>
-		<div id="footer"></div>
+	<--
+		contents of website...	
+	-->
 	</div>
 </div>	
 ```

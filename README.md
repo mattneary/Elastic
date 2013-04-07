@@ -9,7 +9,7 @@ Make a wrapper of your content with a banner element and a container of your pag
 <div class="wrapper">
 	<div class="banner"></div>
 	<div id="main">
-	<--
+	<!--
 		contents of website...	
 	-->
 	</div>

@@ -1,7 +1,13 @@
+<!DOCTYPE>
 <html>
 <head>
+	<title>Elastic</title>
 	<meta charset="utf-8">
-	<link href="pull-refresh.css" rel="stylesheet" />
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<script src="elastic.js"></script>	
+	
+	<link href="elastic.css" rel="stylesheet" />
 	<style>		
 		/* Additional styling */				
 		#main {
@@ -30,8 +36,6 @@
 		<div class="banner"></div>
 		<div id="main"></div>
 	</div>	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-	<script src="pull-refresh.js"></script>
 	<script>
 		// Give main view content
 		var putList = function() {
@@ -40,13 +44,15 @@
 		};
 		putList();
 		
-		$(".wrapper").pullToRefresh(function(finishedRefreshCallback) {
-			// refresh content... 
-			putList();
-			
-			// ...then tell pullToRefresh to finish
-			setTimeout(finishedRefreshCallback, 1e3);
+		$(document).ready(function() {
+			$(".wrapper").elastic(function(finishedRefreshCallback) {
+				// refresh content... 
+				putList();
+				
+				// ...then tell pullToRefresh to finish
+				setTimeout(finishedRefreshCallback, 500);
+			});
 		});
-	</script>
+	</script>			
 </body>
 </html>

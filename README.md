@@ -1,6 +1,8 @@
 Introduction
 ============
-Pull to refresh is a very prevalent design pattern in mobile apps, but when making apps for other platforms, developers are often at a loss for alternative designs. This is where Pull-refresh.js comes in, offering a consistent experience on desktops.
+Pull to refresh is a very prevalent design pattern in mobile apps. However, when making apps for other devices, developers are often unable to find the analog for new platforms. This is where Elastic comes in, offering a desktop experience consistent with pull to refresh.
+
+![Elastic](preview.png)
 
 Usage
 =====

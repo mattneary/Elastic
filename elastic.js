@@ -1,21 +1,26 @@
-$.fn.pullToRefresh = function(refreshCallback) {
+(function() {
 	var options = {
-		waitBeforeDisplayingRefresh: 6e2,
-		waitBeforeAcceptingNew: 1500 
-	};
-	var refresh = refreshCallback;
-	
-	var $wrapper = $(this),
-		$banner = $wrapper.find(".banner");
-	
-	$wrapper[0].scrollTop = 100;
-	
+		waitBeforeDisplayingRefresh: 600,
+		waitBeforeAcceptingNew: 1500,
+		beginInteraction: "&#x219F;",
+		beginRefresh: "&#x21BB;",
+		finishInteraction: "&#x21A1;"
+	};	
 	var scrollCount = 0;
 	var isRefreshing = false;
-	
-	// set down arrow as banner default state
-	$banner.html("&#x21A1;");
-	$wrapper.on("mousewheel", function(evt) {
+	$.fn.elastic = function(refreshCallback) {		
+		var refresh = refreshCallback;
+		
+		var $wrapper = $(this),
+			$banner = $wrapper.find(".banner");
+		
+		$wrapper[0].scrollTop = 100;				
+		
+		// set down arrow as banner default state
+		$banner.html(options.finishInteraction);
+		$wrapper.on("mousewheel", handleScroll.bind({}, refresh, $wrapper, $banner));
+	};
+	var handleScroll = function(refresh, $wrapper, $banner, evt) {
 		if(evt.originalEvent.wheelDelta > 0 && $wrapper.scrollTop() <= 100) {				
 			// keep track of scroll progress manually
 			scrollCount++;
@@ -27,16 +32,16 @@ $.fn.pullToRefresh = function(refreshCallback) {
 			if( $wrapper.scrollTop() <= 0 ) {		
 				// when refresh has been triggered display up arrow
 				isRefreshing = true;
-				$banner.html("&#x219F;");
+				$banner.html(options.beginInteraction);
 				
 				// after a brief delay change to refresh symbol and refresh
 				setTimeout(function() {
-					$banner.html("&#x21BB;");
+					$banner.html(options.beginRefresh);
 					
 					// perform refresh action and pass finish callback
 					refresh(function() {
 						// display down arrow and return scroll position
-						$banner.html("&#x21A1;");
+						$banner.html(options.finishInteraction);
 						$wrapper[0].scrollTop = 100;
 					});
 				}, options.waitBeforeDisplayingRefresh);
@@ -47,5 +52,5 @@ $.fn.pullToRefresh = function(refreshCallback) {
 				}, options.waitBeforeAcceptingNew);
 			}
 		}
-	});
-};
+	};
+}());	

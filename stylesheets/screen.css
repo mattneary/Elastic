@@ -567,3 +567,8 @@ dd p:first-child {
   font-size: .85em;
   font-style: italic;
 }
+
+iframe {
+  width: 100%;
+  height: 500px;
+}

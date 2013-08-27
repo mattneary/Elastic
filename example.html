@@ -32,26 +32,23 @@
 	</style>	
 </head>
 <body>
-	<div class="wrapper">
-		<div class="banner"></div>
-		<div id="main"></div>
-	</div>	
-	<script>
+	<div id="main"></div>	
+	<script>	
 		// Give main view content
 		var putList = function() {
 			$("#main").html("");
 			for( var i = 0; i < 50; i++ ) $("#main").append('<li>Hello #'+Math.ceil(Math.random()*9)+'</li>');
 		};
 		putList();
-		
+
 		$(document).ready(function() {
-			$(".wrapper").elastic(function(finishedRefreshCallback) {
+			$("#main").elastic(function(finishedRefreshCallback) {
 				// refresh content... 
 				putList();
 				
 				// ...then tell pullToRefresh to finish
 				setTimeout(finishedRefreshCallback, 500);
-			});
+			});			
 		});
 	</script>			
 </body>

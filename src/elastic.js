@@ -10,9 +10,11 @@
 	var isRefreshing = false;
 	$.fn.elastic = function(refreshCallback) {		
 		var refresh = refreshCallback;
-		
-		var $wrapper = $(this),
-			$banner = $wrapper.find(".banner");
+			
+		var $main = $(this);
+		$main.wrap('<div class="wrapper" />');
+		var $wrapper = $(".wrapper"),
+			$banner = $wrapper.prepend('<div class="banner"></div>').children('.banner');
 		
 		$wrapper[0].scrollTop = 100;				
 		

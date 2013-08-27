@@ -6,21 +6,20 @@ Pull to refresh is a very prevalent design pattern in mobile apps. However, when
 
 Usage
 =====
-Make a wrapper of your content with a banner element and a container of your page's content.
+Provide a wrapper for your page content; the `body` won't work as the `body` cannot be wrapped
+by another element.
+
 ```html
-<div class="wrapper">
-	<div class="banner"></div>
-	<div id="main">
-	<!--
-		contents of website...	
-	-->
-	</div>
-</div>	
+<div id="main">
+<!--
+	contents of website...	
+-->
+</div>
 ```
 
 Tell the jQuery plugin how to handle the refreshing of a given wrapper.
 ```javascript
-$(".wrapper").pullToRefresh(function(finishedRefreshCallback) {
+$("#main").pullToRefresh(function(finishedRefreshCallback) {
 	// refresh content... 
 	putList();
 	

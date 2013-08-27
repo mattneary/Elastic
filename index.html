@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Elastic by mattneary</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/mattneary/Elastic">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Elastic</h1>
+            <h2>Pull to Refresh for the Web</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/mattneary/Elastic/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/mattneary/Elastic/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h1>
+
+<p>Pull to refresh is a very prevalent design pattern in mobile apps. However, when making apps for other devices, developers are often unable to find the analog for new platforms. This is where Elastic comes in, offering a desktop experience consistent with pull to refresh.</p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>Provide a wrapper for your page content; the <code>body</code> won't work as the <code>body</code> cannot be wrapped
+by another element.</p>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"main"</span><span class="nt">&gt;</span>
+<span class="c">&lt;!--</span>
+<span class="c">    contents of website...  </span>
+<span class="c">--&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<p>Tell the jQuery plugin how to handle the refreshing of a given wrapper.</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#main"</span><span class="p">).</span><span class="nx">pullToRefresh</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">finishedRefreshCallback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// refresh content... </span>
+    <span class="nx">putList</span><span class="p">();</span>
+
+    <span class="c1">// ...then tell pullToRefresh to finish</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">finishedRefreshCallback</span><span class="p">,</span> <span class="mi">1</span><span class="nx">e3</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/mattneary">mattneary</a> can be found on <a href="https://github.com/mattneary/Elastic">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
